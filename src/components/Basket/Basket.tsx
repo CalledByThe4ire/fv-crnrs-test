@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledBasket } from './Basket.styles';
+import { Basket as BasketStyled } from './Basket.styles';
 
 
 interface IBasketProps {}
@@ -7,7 +7,7 @@ interface IBasketProps {}
 const Basket: React.FC<IBasketProps> = () => {
   return (
     <>
-        <StyledBasket>Basket</StyledBasket>
+        <BasketStyled>Basket</BasketStyled>
     </>
   );
 };

@@ -38,10 +38,21 @@ import styled from "styled-components";
 
 export const Input = styled.input`
   display: flex;
+  width: 100%;
+  color: ${(props) => props.theme.colors.black};
+  all: unset;
+  border-bottom: 1px solid ${(props) => props.theme.colors.grey};
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.grey};
+  }
 `;
 
 export const Label = styled.label`
   display: flex;
+  font-size: 12px;
+  line-height: 1;
+  color: ${(props) => props.theme.colors.grey};
 `;
 
 export const Form = styled.form`
@@ -49,5 +60,6 @@ export const Form = styled.form`
 `;
 
 export const Button = styled.button`
-    display: flex;
+  display: flex;
+  all: unstyled;
 `;

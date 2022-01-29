@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const StyledBasket = styled.div`
+export const Basket = styled.div`
   display: flex;
 `;

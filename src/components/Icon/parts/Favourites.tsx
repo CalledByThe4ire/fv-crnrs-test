@@ -9,7 +9,8 @@ const SVG: FC<ComponentPropsWithoutRef<"svg">> = ({
 }) => (
   <StyledSVG
     width={width}
-    height={width}
+    height={height || width}
+    fill="none"
     viewBox="0 0 30 27"
     xmlns="http://www.w3.org/2000/svg"
   >

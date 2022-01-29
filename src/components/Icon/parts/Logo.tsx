@@ -3,13 +3,14 @@ import React, { FC, ComponentPropsWithoutRef } from "react";
 import { StyledSVG } from "./SVG.styles";
 
 const SVG: FC<ComponentPropsWithoutRef<"svg">> = ({
-  width = "77px",
-  height = "24px",
+  width = "160px",
+  height = "50px",
   fill = "#000",
 }) => (
   <StyledSVG
     width={width}
-    height={width}
+    height={height || width}
+    fill="none"
     viewBox="0 0 77 24"
     xmlns="http://www.w3.org/2000/svg"
   >

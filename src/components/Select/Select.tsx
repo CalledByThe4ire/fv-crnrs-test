@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Select from "react-select";
 
-import { Select as StyledSelect } from "./Select.styles";
+import { Select as SelectStyled } from "./Select.styles";
 
 interface IOption {
   value: string;
@@ -20,7 +20,7 @@ const CustomSelect: FC<ICustomSelectProps> = ({ onChange, options, value }) => {
   };
 
   return (
-    <StyledSelect>
+    <SelectStyled>
       <Select
         value={defaultValue(options, value)}
         onChange={(value) => {
@@ -28,7 +28,7 @@ const CustomSelect: FC<ICustomSelectProps> = ({ onChange, options, value }) => {
         }}
         options={options}
       />
-    </StyledSelect>
+    </SelectStyled>
   );
 };
 

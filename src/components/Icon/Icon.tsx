@@ -1,10 +1,12 @@
 import React, { FC, ComponentPropsWithoutRef } from "react";
 
-import Basket from "./components/Basket";
-import Favourites from "./components/Favourites";
-import Profile from "./components/Profile";
-import Search from "./components/Search";
-import Caret from "./components/Caret";
+import Basket from "./parts/Basket";
+import Favourites from "./parts/Favourites";
+import Profile from "./parts/Profile";
+import Menu from "./parts/Menu";
+import Search from "./parts/Search";
+import Caret from "./parts/Caret";
+import Logo from "./parts/Logo";
 
 type IconProps = {
   name: string;
@@ -18,10 +20,14 @@ const Icon: FC<IconProps> = ({ name, ...rest }) => {
       return <Favourites {...rest} />;
     case "profile":
       return <Profile {...rest} />;
+      case "menu":
+        return <Menu {...rest} />;
     case "search":
       return <Search {...rest} />;
       case "caret":
         return <Caret {...rest} />;
+        case "logo":
+          return <Logo {...rest} />;
     default:
       return null;
   }
