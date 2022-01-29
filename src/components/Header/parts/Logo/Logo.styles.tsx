@@ -6,6 +6,12 @@ import { Link } from "../../../../styles";
 export const Logo = styled(Link)`
   grid-area: logo;
   place-self: center;
+  margin-top: 40px;
+  transition: all 0.3s ease-in-out;
+
+  ${down("desktop")} {
+    margin-top: initial;
+  }
 
   & > * {
     width: 160px;

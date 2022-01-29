@@ -46,6 +46,10 @@
     "styled-components": "^5.3.3",
     "styled-normalize": "^8.0.7",
     "typescript": "~4.1.5",
+    "uuid": "^8.3.2",
     "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4"
   }
 }
