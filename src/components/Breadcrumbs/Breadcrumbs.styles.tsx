@@ -4,6 +4,7 @@ export const Breadcrumbs = styled.ul`
   display: flex;
   list-style: none;
   margin: 0;
+  margin-bottom: 50px;
   padding: 0;
 
   a:not(:last-of-type) {

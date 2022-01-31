@@ -11,25 +11,30 @@ export const theme = {
     lightGrey: "#dedede",
     red: "#d80909",
   },
+  fontSizes: {
+    small: "12px",
+    large: "18px",
+  }
 };
 
 export const breakpoints = {
   mobile: "320px",
-  desktop: "1920px",
+  desktop: "1200px",
 };
 
 export const Container = styled.div`
   min-width: ${breakpoints.mobile};
   max-width: ${breakpoints.desktop};
-  margin: 0 405px;
+  margin: 0 auto;
   transition: all 0.3s ease-in-out;
 
   ${down("desktop")} {
-    margin: 0 16px;
+    margin: 0 16px 16px;
   }
 `;
 
 export const Link = styled(ReactRouterDomLink)`
+  all: unset;
   display: flex;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -38,18 +43,10 @@ export const Link = styled(ReactRouterDomLink)`
 export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
-    width: 100%;
-    height: 100%;
   }
 
   *, *:before, *:after {
     box-sizing: inherit;
-  }
-
-  body,
-  #root {
-    width: inherit;
-    height: inherit;
   }
 
   body {

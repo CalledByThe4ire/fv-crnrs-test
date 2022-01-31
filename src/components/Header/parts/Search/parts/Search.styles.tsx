@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { down } from "styled-breakpoints";
 
 import { Link } from "../../../../../styles";
-import { Input } from "../../../../Form/Form.styles";
+import { Input } from "../../../../Basket/parts/Form/Form.styles";
 
 export const Search = styled(Link)`
   margin-right: 20px;
@@ -21,7 +21,9 @@ export const Search = styled(Link)`
 
 export const InputStyled = styled(Input)`
   width: 250px;
-  font-size: 18px;
+  padding-top: initial;
+  padding-bottom: initial;
+  font-size: ${(props) => props.theme.fontSizes.large};
   line-height: 1.3;
 
   ${down("desktop")} {
