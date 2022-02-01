@@ -7,6 +7,14 @@ export const InputField = styled.div`
   flex-grow: 1;
   margin-bottom: 32px;
 
+  &:last-of-type {
+    margin-bottom: 70px;
+
+    ${down("desktop")} {
+      margin-bottom: 40px;
+    }
+  }
+
   ${down("desktop")} {
     margin-bottom: 16px;
   }

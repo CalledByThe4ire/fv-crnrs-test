@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
-import { down } from "styled-breakpoints";
 import { Link as ReactRouterDomLink } from "react-router-dom";
 
 export const theme = {
@@ -14,7 +13,7 @@ export const theme = {
   fontSizes: {
     small: "12px",
     large: "18px",
-  }
+  },
 };
 
 export const breakpoints = {
@@ -26,11 +25,10 @@ export const Container = styled.div`
   min-width: ${breakpoints.mobile};
   max-width: ${breakpoints.desktop};
   margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
   transition: all 0.3s ease-in-out;
-
-  ${down("desktop")} {
-    margin: 0 16px 16px;
-  }
 `;
 
 export const Link = styled(ReactRouterDomLink)`
@@ -38,6 +36,7 @@ export const Link = styled(ReactRouterDomLink)`
   display: flex;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 `;
 
 export const GlobalStyle = createGlobalStyle`

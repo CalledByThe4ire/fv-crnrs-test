@@ -6,6 +6,7 @@ import InputField from "./parts/Form/parts/InputField/InputField";
 import { Form, Input, Label, Button } from "./parts/Form/Form.styles";
 import Map from "./parts/Map/Map";
 import Header from "./parts/Header/Header";
+import Products from '../Products/Products';
 
 const Basket = () => {
   const formik = useFormik({
@@ -153,6 +154,8 @@ const Basket = () => {
           Введите комментарий
         </Label>
       </InputField>
+
+      <Products />
 
       <Button type="submit">Купить</Button>
 

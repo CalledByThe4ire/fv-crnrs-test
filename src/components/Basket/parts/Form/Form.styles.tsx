@@ -46,7 +46,6 @@ export const Form = styled.form`
   display: grid;
   column-gap: 2%;
   grid-template-columns: 24% 24% 50%;
-  grid-template-rows: repeat(6, auto) 1fr;
   grid-template-areas:
     "header . map"
     "form-field-address form-field-address map"
@@ -54,6 +53,7 @@ export const Form = styled.form`
     "form-field-email form-field-email map"
     "form-field-package-select form-field-package-select map"
     "form-field-comment form-field-comment map"
+    "products products map"
     "form-field-submit form-field-submit map";
 
   ${down("desktop")} {
@@ -69,6 +69,7 @@ export const Form = styled.form`
       "form-field-email"
       "form-field-package-select"
       "form-field-comment"
+      "products"
       "form-field-submit";
   }
 `;

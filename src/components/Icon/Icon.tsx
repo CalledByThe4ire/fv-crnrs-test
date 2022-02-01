@@ -6,6 +6,8 @@ import Profile from "./parts/Profile";
 import Menu from "./parts/Menu";
 import Search from "./parts/Search";
 import Caret from "./parts/Caret";
+import Minus from "./parts/Minus";
+import Plus from "./parts/Plus";
 import Logo from "./parts/Logo";
 
 type IconProps = {
@@ -26,6 +28,10 @@ const Icon: FC<IconProps> = ({ name, ...rest }) => {
       return <Search {...rest} />;
       case "caret":
         return <Caret {...rest} />;
+        case "minus":
+          return <Minus {...rest} />;
+          case "plus":
+            return <Plus {...rest} />;
         case "logo":
           return <Logo {...rest} />;
     default:
