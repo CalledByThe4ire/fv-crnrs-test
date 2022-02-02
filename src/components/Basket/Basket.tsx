@@ -4,11 +4,14 @@ import * as Yup from "yup";
 import Select from "./parts/Form/parts/Select/Select";
 import InputField from "./parts/Form/parts/InputField/InputField";
 import { Form, Input, Label, Button } from "./parts/Form/Form.styles";
-import Map from "./parts/Map/Map";
+import Map from "../../features/map/Map";
 import Header from "./parts/Header/Header";
-import Products from '../../features/products/Products';
+import Products from "../../features/products/Products";
+import { useAppDispatch } from "../../app/hooks";
+import { fetchLocation } from "../../features/map/mapSlice";
 
 const Basket = () => {
+  const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
       address: "",
@@ -49,6 +52,10 @@ const Basket = () => {
           onChange={formik.handleChange}
           value={formik.values.address}
           hasError={!!(formik.touched.address && formik.errors.address)}
+          onBlur={(e) => {
+            dispatch(fetchLocation({ address: formik.values.address }));
+            formik.handleBlur(e);
+          }}
         />
         <Label
           htmlFor="name"
@@ -159,7 +166,7 @@ const Basket = () => {
 
       <Button type="submit">Купить</Button>
 
-      <Map />
+      <Map handleClick={(value) => formik.setFieldValue("address", value)} />
     </Form>
   );
 };

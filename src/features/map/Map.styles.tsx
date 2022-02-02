@@ -10,8 +10,10 @@ export const Map = styled.figure`
   flex-flow: column wrap;
   margin: 0;
   padding: 0;
+  height: 700px;
 
   ${down("desktop")} {
+    height: 500px;
     align-self: initial;
     margin-bottom: 24px;
   }
