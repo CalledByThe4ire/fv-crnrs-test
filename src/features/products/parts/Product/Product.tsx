@@ -23,7 +23,7 @@ import {
   Link,
 } from "./Product.styles";
 import Icon from "../../../../components/Icon/Icon";
-import productImage from "../../../../assets/images/product.jpg";
+// import productImage from "../../../../assets/images/product.jpg";
 
 interface ProductProps {
   product: IProduct;
@@ -31,13 +31,13 @@ interface ProductProps {
 
 const Products: React.FC<ProductProps> = ({ product }) => {
   const dispatch = useAppDispatch();
-  const { id, name, description, price, count } = product;
+  const { id, name, type, img, price, amount } = product;
 
   return (
     <ProductStyled>
       <ImageWrapper>
         <img
-          src={productImage}
+          src={img}
           alt="Изображение товара"
           width="100%"
           height="100%"
@@ -45,18 +45,18 @@ const Products: React.FC<ProductProps> = ({ product }) => {
       </ImageWrapper>
       <ContentWrapper>
         <Heading>{name}</Heading>
-        <Description>{description}</Description>
+        <Description>{type}</Description>
         <Controls>
           <Control
             onClick={(evt) => {
               evt.preventDefault();
               dispatch(decProductQuantity(id));
             }}
-            disabled={count === 1}
+            disabled={amount === 1}
           >
             <Icon name="minus" />
           </Control>
-          <Count>{count}</Count>
+          <Count>{amount}</Count>
 
           <Control
             onClick={(evt) => {

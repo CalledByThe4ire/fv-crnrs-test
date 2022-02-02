@@ -28,10 +28,9 @@ interface ISelectContext {
 }
 
 const options: IOption[] = [
-  { value: "variant_1", label: "Package 1" },
-  { value: "variant_2", label: "Package 2" },
-  { value: "variant_3", label: "Package 3" },
-  { value: "variant_4", label: "Package 4" },
+  { value: "variant_1", label: "без упаковки" },
+  { value: "variant_2", label: "стандартная" },
+  { value: "variant_3", label: "подарочная" },
 ];
 
 const Select: FC<ISelectProps> = (props) => {

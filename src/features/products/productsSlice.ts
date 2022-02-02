@@ -9,11 +9,12 @@ export enum Status {
 }
 
 export interface IProduct {
-    id: number;
+    id: string;
     name: string;
-    description: string;
+    type: string;
+    img: string;
     price: number;
-    count: number;
+    amount: number;
 }
 
 interface IProductsState {
@@ -46,7 +47,7 @@ export const fetchProducts = createAsyncThunk(
 
 export const removeProduct = createAsyncThunk(
     'products/removeProduct',
-    async function(id: number, {rejectWithValue, dispatch}) {
+    async function(id: string, {rejectWithValue, dispatch}) {
         try {
             const response = await fetch(`${baseUrl}/products/${id}`, {
                 method: 'DELETE',
@@ -67,7 +68,7 @@ export const removeProduct = createAsyncThunk(
 
 export const incProductQuantity = createAsyncThunk(
     'products/inc',
-    async function (id: number, {rejectWithValue, dispatch, getState}) {
+    async function (id: string, {rejectWithValue, dispatch, getState}) {
         const product = ((getState() as RootState)?.products?.products?.find((product: IProduct) => product.id === id) as IProduct);
 
         try {
@@ -77,7 +78,7 @@ export const incProductQuantity = createAsyncThunk(
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    count: product.count + 1,
+                    count: product.amount + 1,
                 })
             });
 
@@ -96,7 +97,7 @@ export const incProductQuantity = createAsyncThunk(
 
 export const decProductQuantity = createAsyncThunk(
     'products/dec',
-    async function (id: number, {rejectWithValue, dispatch, getState}) {
+    async function (id: string, {rejectWithValue, dispatch, getState}) {
         const product = ((getState() as RootState)?.products?.products?.find((product: IProduct) => product.id === id) as IProduct);
 
         try {
@@ -106,7 +107,7 @@ export const decProductQuantity = createAsyncThunk(
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    count: product.count - 1,
+                    count: product.amount - 1,
                 })
             });
 
@@ -136,14 +137,14 @@ const productsSlice = createSlice({
         inc(state, action) {
             const product = state.products?.find(product => product.id === action.payload.id);
             if (product) {
-                product.count = product.count + 1;
+                product.amount = product.amount + 1;
             }
         },
         dec(state, action) {
             const product = state.products?.find(product => product.id === action.payload.id);
             
             if (product) {
-                product.count = product.count - 1;
+                product.amount = product.amount - 1;
             }
         },
         remove(state, action) {
@@ -182,9 +183,9 @@ const productsSlice = createSlice({
 });
 
 export const selectTotal = (state: RootState) => state.products.products?.reduce((acc, product) => {
-    const {price, count} = product;
+    const {price, amount} = product;
 
-    return acc + price * count;
+    return acc + price * amount;
 
 }, 0);
 
