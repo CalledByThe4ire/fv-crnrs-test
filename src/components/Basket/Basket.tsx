@@ -6,7 +6,7 @@ import InputField from "./parts/Form/parts/InputField/InputField";
 import { Form, Input, Label, Button } from "./parts/Form/Form.styles";
 import Map from "./parts/Map/Map";
 import Header from "./parts/Header/Header";
-import Products from '../Products/Products';
+import Products from '../../features/products/Products';
 
 const Basket = () => {
   const formik = useFormik({

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { down } from "styled-breakpoints";
-import { Link as BaseLink } from "../../styles";
+import { Link as BaseLink } from "../../../../styles";
 
 export const ImageWrapper = styled.div`
   width: 150px;
@@ -81,6 +81,11 @@ export const Control = styled.button`
   justify-content: center;
   align-items: center;
   padding: 12px;
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
 
   svg {
     width: 16px;
@@ -95,6 +100,8 @@ export const Control = styled.button`
 
 export const Count = styled.span`
   display: flex;
+  justify-content: center;
+  min-width: 25px;
   font-family: "AG_Helvetica Bold", Arial, sans-serif;
   font-size: 20px;
   line-height: 1;
@@ -141,6 +148,7 @@ export const Product = styled.section`
   grid-template-rows: auto;
   grid-template-columns: 150px 1fr 1fr;
   grid-template-areas: "image content content";
+  padding-top: 25px;
 
   ${down("desktop")} {
     grid-template-columns: 80px 1fr 1fr;
@@ -148,7 +156,7 @@ export const Product = styled.section`
 
   &:not(:last-of-type) {
     padding-bottom: 24px;
-    border-bottom: 1px solid ${(props) => props.theme.colors.black};
+    border-bottom: 1px solid ${(props) => props.theme.colors.grey};
   }
   ${down("desktop")} {
   }

@@ -1,11 +1,15 @@
 import React from "react";
 
+import { useAppSelector } from "../../../../app/hooks";
+import { selectTotal } from '../../../../features/products/productsSlice';
 import { Map as MapStyled } from "./Map.styles";
 import mapImagePlaceholder from "../../../../assets/images/map.jpg";
 
 interface MapProps {}
 
 const Map: React.FC<MapProps> = () => {
+  const count = useAppSelector(selectTotal);
+
   return (
     <MapStyled>
       <img
@@ -17,7 +21,7 @@ const Map: React.FC<MapProps> = () => {
       <figcaption>
         <div>Итог:</div>
         <div>
-          <span>3790</span>
+          <span>{count}</span>
           <span>&nbsp;руб.</span>
         </div>
       </figcaption>

@@ -46,6 +46,7 @@ export const Form = styled.form`
   display: grid;
   column-gap: 2%;
   grid-template-columns: 24% 24% 50%;
+  grid-template-rows: auto;
   grid-template-areas:
     "header . map"
     "form-field-address form-field-address map"

@@ -5,14 +5,16 @@ import { rgba } from "polished";
 export const Map = styled.figure`
   position: relative;
   grid-area: map;
+  align-self: start;
   display: flex;
   flex-flow: column wrap;
   margin: 0;
   padding: 0;
 
-${down("desktop")} {
+  ${down("desktop")} {
+    align-self: initial;
     margin-bottom: 24px;
-}
+  }
 
   img {
     object-fit: cover;
@@ -34,7 +36,7 @@ ${down("desktop")} {
     background-color: ${(props) => rgba(props.theme.colors.black, 0.8)};
 
     ${down("desktop")} {
-        display: none;
+      display: none;
     }
   }
 `;
