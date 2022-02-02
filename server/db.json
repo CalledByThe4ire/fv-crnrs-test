@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "id": "904.989.72",
-      "name": "VINTER GARLAND 2021",
-      "type": "Украшение, венок, красный/золотой, 38 см",
-      "img": "https://www.ikea.com/ru/ru/images/products/vinter-2021-vinte…krashenie-venok-krasnyy-zolotoy__0986113_pe817049_s5.jpg?f=s",
-      "price": 1699,
-      "amount": 1
+        "id": "904.989.72",
+        "name": "VINTER GARLAND 2021",
+        "type":"Украшение, венок, красный/золотой, 38 см",
+        "img": "https://www.ikea.com/ru/ru/images/products/vinter-2021-vinte…krashenie-venok-krasnyy-zolotoy__0986113_pe817049_s5.jpg?f=s",
+        "price": 1699,
+        "amount":1
     },
     {
       "id": "304.949.53",

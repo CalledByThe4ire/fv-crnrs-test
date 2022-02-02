@@ -1,13 +1,10 @@
 import React from "react";
-import { useAppSelector, useAppDispatch } from "../../../../app/hooks";
+import { useAppDispatch } from "../../../../app/hooks";
 import {
   IProduct,
   removeProduct,
   incProductQuantity,
   decProductQuantity,
-  inc,
-  dec,
-  remove,
 } from "../../productsSlice";
 
 import {
@@ -23,7 +20,6 @@ import {
   Link,
 } from "./Product.styles";
 import Icon from "../../../../components/Icon/Icon";
-// import productImage from "../../../../assets/images/product.jpg";
 
 interface ProductProps {
   product: IProduct;

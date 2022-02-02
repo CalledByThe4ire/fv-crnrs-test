@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect, createContext } from "react";
+import React, { FC, useState, createContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import Icon from "../../../../../Icon/Icon";

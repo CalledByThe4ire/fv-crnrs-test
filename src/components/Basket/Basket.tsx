@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -7,11 +8,18 @@ import { Form, Input, Label, Button } from "./parts/Form/Form.styles";
 import Map from "../../features/map/Map";
 import Header from "./parts/Header/Header";
 import Products from "../../features/products/Products";
-import { useAppDispatch } from "../../app/hooks";
-import { fetchLocation } from "../../features/map/mapSlice";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import {
+  fetchLocation,
+  selectCoords,
+  selectAddress,
+} from "../../features/map/mapSlice";
 
 const Basket = () => {
   const dispatch = useAppDispatch();
+  const coords = useAppSelector(selectCoords);
+  const address = useAppSelector(selectAddress);
+
   const formik = useFormik({
     initialValues: {
       address: "",
@@ -26,7 +34,7 @@ const Basket = () => {
       name: Yup.string().required("Поле обязательно к заполнению"),
       phone: Yup.string()
         .matches(
-          /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/,
+          /^(\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}$/,
           "Номер телефона введён в некорректном формате"
         )
         .required("Поле обязательно к заполнению"),
@@ -36,9 +44,14 @@ const Basket = () => {
       package: Yup.string().required("Выберите тип упаковки"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      console.log(JSON.stringify({ ...values, coords }));
     },
   });
+
+  useEffect(() => {
+    formik.setFieldValue("address", address);
+    // eslint-disable-next-line
+  }, [address]);
 
   return (
     <Form onSubmit={formik.handleSubmit}>
@@ -166,7 +179,7 @@ const Basket = () => {
 
       <Button type="submit">Купить</Button>
 
-      <Map handleClick={(value) => formik.setFieldValue("address", value)} />
+      <Map />
     </Form>
   );
 };

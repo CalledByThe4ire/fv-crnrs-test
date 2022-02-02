@@ -5,14 +5,8 @@ import { RootState } from '../../app/store';
 import {
   Status,
   fetchProducts,
-  removeProduct,
-  incProductQuantity,
-  decProductQuantity,
   selectTotal,
   selectProducts,
-  inc,
-  dec,
-  remove,
 } from "./productsSlice";
 import {
   Products as ProductsStyled,

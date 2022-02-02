@@ -4,7 +4,7 @@ import GoogleMapReact from "google-map-react";
 import { Map as MapStyled } from "./Map.styles";
 import LocationPin from "./parts/LocationPin";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { fetchLocation, selectCoords, selectAddress } from "./mapSlice";
+import { fetchLocation, selectCoords } from "./mapSlice";
 import { selectTotal } from "../products/productsSlice";
 
 export interface ILocation {
@@ -12,9 +12,7 @@ export interface ILocation {
   lng: number;
 }
 
-export interface IMapProps {
-  handleClick: (...args: any) => any;
-}
+export interface IMapProps {}
 
 const defaultLocation: ILocation = {
   lat: 60.03171200819347,
@@ -26,10 +24,8 @@ const Map: React.FC<IMapProps> = (props) => {
   const coords = useAppSelector(selectCoords) as ILocation & {
     [key: string]: any;
   };
-  const address = useAppSelector(selectAddress);
-
-  const hasCoords = Object.keys(coords).every((key) => coords[key]);
   const count = useAppSelector(selectTotal);
+  const hasCoords = Object.keys(coords).every((key) => coords[key]);
 
   return (
     <MapStyled>
@@ -46,10 +42,6 @@ const Map: React.FC<IMapProps> = (props) => {
           const { lat, lng } = e;
 
           dispatch(fetchLocation({ coords: { lat, lng } }));
-
-          if (address) {
-            props.handleClick(address);
-          }
         }}
       >
         {hasCoords && <LocationPin lat={coords.lat} lng={coords.lng} />}
