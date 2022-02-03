@@ -23,7 +23,7 @@ interface IProductsState {
     error: unknown,
 }
 
-const baseUrl = 'http://localhost:3001';
+const baseUrl = 'https://my-json-server.typicode.com/calledbythe4ire/fv-crnrs-test-json-server';
 
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
